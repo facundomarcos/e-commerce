@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "6nl+Ysvxv5rhDPcaan8Hv7fGk1RtJRJy7msmwLBD9JzjQnrNp5A9WeMCDBMrMdtCZnFMfWk0eVE6/xFurL6+3w==",
+  "dgSpecHash": "D9j+eo8LVrJfQrSbe1ICmi6YpQ0D0FEV+DkmWjQZfDQJ9qw0RhLUBFqJ2MY4DB7ElO40MkpHklhRQdX/sAheOg==",
   "success": true,
   "projectFilePath": "C:\\proyectos\\NetMarket-vaxi\\NetMarket\\WebApi\\WebApi.csproj",
   "expectedPackageFiles": [
@@ -129,11 +129,7 @@
     "C:\\Users\\Usuario\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\Usuario\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
-    "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.16\\microsoft.netcore.app.ref.6.0.16.nupkg.sha512",
-    "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.16\\microsoft.windowsdesktop.app.ref.6.0.16.nupkg.sha512",
-    "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.16\\microsoft.aspnetcore.app.ref.6.0.16.nupkg.sha512",
-    "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.16\\microsoft.netcore.app.host.win-x64.6.0.16.nupkg.sha512"
+    "C:\\Users\\Usuario\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
   "logs": []
 }
