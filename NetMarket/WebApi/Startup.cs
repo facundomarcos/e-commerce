@@ -21,11 +21,14 @@ public class Startup
 
     public void ConfigureServices(IServiceCollection services)
     {
+        services.AddScoped(typeof(IGenericRepository<>),(typeof(GenericRepository<>)));
         services.AddDbContext<MarketDbContext>(opt =>
         {
             opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
         });
         services.AddTransient<IProductoRepository, ProductoRepository>();
+        
+
         services.AddControllers();
     }
 
