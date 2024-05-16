@@ -1,0 +1,21 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/NetMarket/.vs/NetMarket/FileContentIndex/a04e8b31-5ec5-457a-86fd-4689e0fc9e26.vsidx
+/NetMarket/.vs/NetMarket/FileContentIndex/232c6ca4-854b-4a04-972c-61c091c15f77.vsidx
+/NetMarket/.vs/NetMarket/v17/.suo
+/NetMarket/.vs/NetMarket/FileContentIndex/a04e8b31-5ec5-457a-86fd-4689e0fc9e26.vsidx
+/NetMarket/BusinessLogic/bin/Debug/net7.0/BusinessLogic.pdb
+/NetMarket/BusinessLogic/obj/Debug/net7.0/ref/BusinessLogic.dll
+/NetMarket/BusinessLogic/bin/Debug/net7.0/BusinessLogic.dll
+/NetMarket/BusinessLogic/obj/Debug/net7.0/refint/BusinessLogic.dll
+/NetMarket/WebApi/obj/Debug/net7.0/WebApi.csproj.AssemblyReference.cache
+/NetMarket/WebApi/obj/Debug/net7.0/WebApi.dll
+/NetMarket/WebApi/obj/Debug/net7.0/WebApi.pdb
+/NetMarket/WebApi/bin/Debug/net7.0/WebApi.pdb
+/NetMarket/WebApi/bin/Debug/net7.0/WebApi.dll
+/NetMarket/WebApi/bin/Debug/net7.0/BusinessLogic.pdb
+/NetMarket/WebApi/bin/Debug/net7.0/BusinessLogic.dll
+/NetMarket/BusinessLogic/obj/Debug/net7.0/BusinessLogic.pdb
+/NetMarket/BusinessLogic/obj/Debug/net7.0/BusinessLogic.dll
