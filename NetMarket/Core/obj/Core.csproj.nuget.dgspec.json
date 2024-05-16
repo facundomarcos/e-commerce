@@ -42,7 +42,7 @@
           "dependencies": {
             "Microsoft.Extensions.Identity.Stores": {
               "target": "Package",
-              "version": "[5.0.4, )"
+              "version": "[7.0.10, )"
             }
           },
           "imports": [

@@ -3,7 +3,6 @@
 
 
 using Core.Entities;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -16,33 +15,28 @@ namespace BusinessLogic.Data
 {
     public class MarketDbContextData
     {
-        //private readonly ILoggerFactory _loggerFactory;
-        //private readonly MarketDbContext _context;
-        //public MarketDbContextData(MarketDbContext context, ILoggerFactory loggerFactory)
-        //{
-        //    _context = context; _loggerFactory = loggerFactory;
-        //}
+
 
         public static async Task CargarDataAsync(MarketDbContext context, ILoggerFactory loggerFactory)
         {
             try
-			{
-              
-                
+            {
+
+
                 if (!context.Marca.Any())
-				{
-               
-					var marcaData = File.ReadAllText("../BusinessLogic/CargarData/marca.json");
-					var marcas = JsonSerializer.Deserialize<List<Marca>>(marcaData);
+                {
 
-					foreach (var marca in marcas)
-					{
-						context.Marca.Add(marca);
+                    var marcaData = File.ReadAllText("../BusinessLogic/CargarData/marca.json");
+                    var marcas = JsonSerializer.Deserialize<List<Marca>>(marcaData);
 
-					}
+                    foreach (var marca in marcas)
+                    {
+                        context.Marca.Add(marca);
 
-					await context.SaveChangesAsync();
-				}
+                    }
+
+                    await context.SaveChangesAsync();
+                }
 
                 if (!context.Categoria.Any())
                 {
@@ -72,12 +66,12 @@ namespace BusinessLogic.Data
                     await context.SaveChangesAsync();
                 }
             }
-			catch (Exception e)
-			{
+            catch (Exception e)
+            {
 
                 var logger = loggerFactory.CreateLogger<MarketDbContextData>();
                 logger.LogError(e.Message);
-			}
+            }
         }
     }
 }

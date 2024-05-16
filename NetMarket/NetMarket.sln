@@ -13,6 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentacion", "Documentac
 	ProjectSection(SolutionItems) = preProject
 		docker-mssql.txt = docker-mssql.txt
 		entityFramework.txt = entityFramework.txt
+		inserts.txt = inserts.txt
 	EndProjectSection
 EndProject
 Global
