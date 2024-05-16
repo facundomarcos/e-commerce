@@ -1,8 +1,10 @@
 ﻿
 
-using Core.Entities;
-using Microsoft.Extensions.Logging;
 
+
+using Core.Entities;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -16,10 +18,13 @@ namespace BusinessLogic.Data
     {
         public static async Task CargarDataAsync(MarketDbContext context, ILoggerFactory loggerFactory)
         {
-			try
+            try
 			{
-				if (!context.Marca.Any())
+                Console.WriteLine("acá try");
+                
+                if (!context.Marca.Any())
 				{
+                    Console.WriteLine("acá if");
 					var marcaData = File.ReadAllText("../BusinessLogic/CargarData/marca.json");
 					var marcas = JsonSerializer.Deserialize<List<Marca>>(marcaData);
 
