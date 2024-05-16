@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BusinessLogic.Data.Migrations
 {
     [DbContext(typeof(MarketDbContext))]
-    [Migration("20230517211300_MigracionInicial")]
+    [Migration("20240516033052_MigracionInicial")]
     partial class MigracionInicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

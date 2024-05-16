@@ -1,0 +1,17 @@
+
+//version ef
+dotnet --list-runtimes
+//desinstalar ante ultima version de ef
+dotnet tool uninstall dotnet-ef --global
+//instalar ef
+dotnet tool install --global dotnet-ef --version 7.0.7
+
+
+dotnet ef migrations add MigracionInicial -p BusinessLogic -s WebApi -o Data/Migrations
+
+dotnet 
+
+
+
+Add-Migration InitialCreate
+Update-Database

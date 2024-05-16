@@ -1,0 +1,15 @@
+
+//descargar imagen
+docker pull mcr.microsoft.com/mssql/server
+
+//crear container
+docker run -e "ACCEPT_EULA=Y" --name mssql-market -e "SA_PASSWORD=Q1w2e3r4$" -p 1433:1433 -d mcr.microsoft.com/mssql/server
+
+//verificar
+docker container list
+
+//conectar con microsoft managment studio -> localhost / user sa / pass Q1w2e3r4$
+
+
+
+

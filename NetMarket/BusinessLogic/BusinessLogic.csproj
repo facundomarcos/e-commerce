@@ -23,6 +23,7 @@
 
 	<ItemGroup>
 	  <Folder Include="CargarData\" />
+	  <Folder Include="Data\Migrations\" />
 	</ItemGroup>
 	
 </Project>

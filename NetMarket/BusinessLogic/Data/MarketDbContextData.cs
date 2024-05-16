@@ -16,15 +16,22 @@ namespace BusinessLogic.Data
 {
     public class MarketDbContextData
     {
+        //private readonly ILoggerFactory _loggerFactory;
+        //private readonly MarketDbContext _context;
+        //public MarketDbContextData(MarketDbContext context, ILoggerFactory loggerFactory)
+        //{
+        //    _context = context; _loggerFactory = loggerFactory;
+        //}
+
         public static async Task CargarDataAsync(MarketDbContext context, ILoggerFactory loggerFactory)
         {
             try
 			{
-                Console.WriteLine("acá try");
+              
                 
                 if (!context.Marca.Any())
 				{
-                    Console.WriteLine("acá if");
+               
 					var marcaData = File.ReadAllText("../BusinessLogic/CargarData/marca.json");
 					var marcas = JsonSerializer.Deserialize<List<Marca>>(marcaData);
 
