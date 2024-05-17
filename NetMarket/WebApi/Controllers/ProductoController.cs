@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using WebApi.Dtos;
+using WebApi.Errors;
 
 namespace WebApi.Controllers
 {
@@ -38,6 +39,10 @@ namespace WebApi.Controllers
             var spec = new ProductoWithCategoriaAndMarcaSpecification(id);
 
             var producto = await _productoRepository.GetByIdWithSpec(spec);
+            if(producto == null)
+            {
+                return NotFound(new CodeErrorResponse(404,"El producto no existe"));
+            }
            return _mapper.Map<Producto, ProductoDto>(producto);
         }
 
