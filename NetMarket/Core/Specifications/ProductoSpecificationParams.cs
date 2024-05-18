@@ -20,6 +20,7 @@ namespace Core.Specifications
             //controla el limite de elementos que devuelve -> no va a devolver mas de 50
             set => _pageSize = (value > MaxPageSize) ? MaxPageSize : value ;
         }
+        public string Search { get; set; }
 
 
     }
