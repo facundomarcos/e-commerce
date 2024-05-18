@@ -28,6 +28,11 @@ namespace BusinessLogic.Data
                 inputQuery = inputQuery.OrderByDescending(spect.OrderByDescending);
 
             }
+
+            if(spect.IsPagingEnable)
+            {
+                inputQuery = inputQuery.Skip(spect.Skip).Take(spect.Take);
+            }
             inputQuery = spect.Includes.Aggregate(inputQuery, (current, include) => current.Include(include));
             return inputQuery;
         }
