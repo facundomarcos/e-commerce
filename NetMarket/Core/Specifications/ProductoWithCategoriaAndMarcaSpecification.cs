@@ -9,7 +9,9 @@ namespace Core.Specifications
 {
     public class ProductoWithCategoriaAndMarcaSpecification : BaseSpecification<Producto>
     {
-        public ProductoWithCategoriaAndMarcaSpecification(string sort)
+        public ProductoWithCategoriaAndMarcaSpecification(string sort, int? marca, int? categoria)
+            :base (x=> (!marca.HasValue || x.MarcaId == marca) &&
+                       (!categoria.HasValue || x.CategoriaId == categoria))
         {
             AddInclude(p => p.Categoria);
             AddInclude(p => p.Marca);
