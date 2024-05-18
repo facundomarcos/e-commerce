@@ -6,3 +6,5 @@
 *.vsidx
 /NetMarket/.vs/NetMarket/v17/.suo
 /NetMarket/BusinessLogic/obj/Debug/net7.0/BusinessLogic.csproj.AssemblyReference.cache
+*.manifest
+*.testlog
