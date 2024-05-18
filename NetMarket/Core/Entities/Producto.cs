@@ -1,9 +1,4 @@
-﻿
-
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace Core.Entities
+﻿namespace Core.Entities
 {
     public class Producto : ClaseBase
     {
@@ -21,7 +16,7 @@ namespace Core.Entities
 
         public Categoria Categoria { get; set; }
 
-     
+        //[Column(TypeName ="decimal(18,4)")]
         public decimal Precio { get; set; }
 
         public string Imagen { get; set; }

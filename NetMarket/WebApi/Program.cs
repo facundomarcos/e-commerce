@@ -8,8 +8,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Threading.Tasks;
+using WebApi;
 
-namespace WebApi;
 
 public class Program
 {
@@ -26,7 +26,8 @@ public class Program
                 var context = services.GetRequiredService<MarketDbContext>();
                 await context.Database.MigrateAsync();
 
-                await MarketDbContextData.CargarDataAsync(context, loggerFactory);
+                //TODO, esto no lo levanta
+                   await MarketDbContextData.CargarDataAsync(context, loggerFactory);
             }
             catch (Exception e)
             {

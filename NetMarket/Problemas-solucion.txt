@@ -1,0 +1,3 @@
+
+Error con el certificado ssl en sql server
+https://www.youtube.com/watch?v=_lHdZgHJuKA

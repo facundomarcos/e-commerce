@@ -7,42 +7,62 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using WebApi.Dtos;
+using WebApi.Middleware;
 
-namespace WebApi
+namespace WebApi;
+
+public class Startup
 {
-    public class Startup
+    public IConfiguration Configuration { get; }
+
+    public Startup(IConfiguration configuration)
     {
-        public IConfiguration Configuration { get; }
+        Configuration = configuration;
+    }
 
-        public Startup(IConfiguration configuration)
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddAutoMapper(typeof(MappingProfiles));
+        services.AddScoped(typeof(IGenericRepository<>),(typeof(GenericRepository<>)));
+        services.AddDbContext<MarketDbContext>(opt =>
         {
-            Configuration = configuration;
-        }
+            opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+        });
+        services.AddTransient<IProductoRepository, ProductoRepository>();
+        
 
-        public void ConfigureServices(IServiceCollection services)
+        services.AddControllers();
+        //para que sea consumido por clientes como react, angular, etc
+        services.AddCors(opt =>
         {
-            services.AddDbContext<MarketDbContext>(opt => {
-                opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
-            });
-            services.AddTransient<IProductoRepository, ProductoRepository>();
-            services.AddControllers();
-        }
-
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        {
-            if (env.IsDevelopment())
+            opt.AddPolicy("CorsRule", rule =>
             {
-                app.UseDeveloperExceptionPage();
-            }
-
-            app.UseRouting();
-            app.UseAuthentication();
-            app.UseAuthorization();
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
+                //en el * se pueden configurar los ip
+                rule.AllowAnyHeader().AllowAnyMethod().WithOrigins("*");
             });
+         });
+    }
 
-        }
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+    {
+        //if (env.IsDevelopment())
+        //{
+        //    app.UseDeveloperExceptionPage();
+        //}
+        app.UseMiddleware<ExceptionMiddleware>();
+
+        app.UseStatusCodePagesWithReExecute("/errors", "?code={0}");
+
+        app.UseRouting();
+        app.UseCors("CorsRule");
+        app.UseAuthentication();
+        app.UseAuthorization();
+        app.UseEndpoints(endpoints =>
+        {
+            endpoints.MapControllers();
+        });
+
     }
 }
+
