@@ -33,6 +33,15 @@ public class Startup
         
 
         services.AddControllers();
+        //para que sea consumido por clientes como react, angular, etc
+        services.AddCors(opt =>
+        {
+            opt.AddPolicy("CorsRule", rule =>
+            {
+                //en el * se pueden configurar los ip
+                rule.AllowAnyHeader().AllowAnyMethod().WithOrigins("*");
+            });
+         });
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -46,6 +55,7 @@ public class Startup
         app.UseStatusCodePagesWithReExecute("/errors", "?code={0}");
 
         app.UseRouting();
+        app.UseCors("CorsRule");
         app.UseAuthentication();
         app.UseAuthorization();
         app.UseEndpoints(endpoints =>
