@@ -1,0 +1,8 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/NetMarket/WebApi/obj/Debug/net7.0/WebApi.csproj.AssemblyReference.cache
+*.vsidx
+/NetMarket/.vs/NetMarket/v17/.suo
+/NetMarket/BusinessLogic/obj/Debug/net7.0/BusinessLogic.csproj.AssemblyReference.cache
