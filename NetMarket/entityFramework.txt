@@ -11,7 +11,8 @@ dotnet ef migrations add MigracionInicial -p BusinessLogic -s WebApi -o Data/Mig
 
 dotnet 
 
-
+//migracionseguridad identity
+dotnet ef migrations add SeguridadInicio -p BusinessLogic -s WebApi -o Identity/Migrations -c SeguridadDbContext
 
 Add-Migration InitialCreate
 Update-Database
