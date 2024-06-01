@@ -29,6 +29,14 @@ public class Startup
         {
             opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
         });
+
+        services.AddDbContext<SeguridadDbContext>(x =>
+        {
+            x.UseSqlServer(Configuration.GetConnectionString("IdentitySeguridad"));
+        });
+      
+
+
         services.AddTransient<IProductoRepository, ProductoRepository>();
         
 

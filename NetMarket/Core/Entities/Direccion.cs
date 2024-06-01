@@ -11,7 +11,7 @@ namespace Core.Entities
         public int Id { get; set; }
         public string Calle { get; set; }
         public string Ciudad { get; set; }  
-public string CodigoPostal { get; set; }
+        public string CodigoPostal { get; set; }
         public string UsuarioId { get; set; }
         Usuario Usuario { get; set; }
     }
