@@ -1,7 +1,9 @@
 
 
 using BusinessLogic.Data;
+using Core.Entities;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -26,8 +28,13 @@ public class Program
                 var context = services.GetRequiredService<MarketDbContext>();
                 await context.Database.MigrateAsync();
 
-                //TODO, esto no lo levanta
                    await MarketDbContextData.CargarDataAsync(context, loggerFactory);
+
+                var userManager = services.GetRequiredService<UserManager<Usuario>>();
+                var idenntityContext = services.GetRequiredService<SeguridadDbContext>();
+                await idenntityContext.Database.MigrateAsync();
+
+               await  SeguridadDbContextData.SeedUserAsync(userManager);
             }
             catch (Exception e)
             {

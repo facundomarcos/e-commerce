@@ -1,8 +1,10 @@
 ﻿using BusinessLogic.Data;
 using BusinessLogic.Logic;
+using Core.Entities;
 using Core.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -23,6 +25,15 @@ public class Startup
 
     public void ConfigureServices(IServiceCollection services)
     {
+        var builder = services.AddIdentityCore<Usuario>();
+        builder = new IdentityBuilder(builder.UserType, builder.Services);
+        builder.AddEntityFrameworkStores<SeguridadDbContext>();
+        builder.AddSignInManager<SignInManager<Usuario>>();
+
+        services.AddAuthentication();
+
+
+
         services.AddAutoMapper(typeof(MappingProfiles));
         services.AddScoped(typeof(IGenericRepository<>),(typeof(GenericRepository<>)));
         services.AddDbContext<MarketDbContext>(opt =>
