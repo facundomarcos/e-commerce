@@ -41,7 +41,7 @@ namespace WebApi.Middleware
                 : new CodeErrorException((int)HttpStatusCode.InternalServerError);
                 var options = new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase };
                 var json = JsonSerializer.Serialize(response,options);
-                context.Response.WriteAsync(json);
+               await  context.Response.WriteAsync(json);
 
             }
         }
