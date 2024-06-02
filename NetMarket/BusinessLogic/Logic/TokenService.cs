@@ -33,16 +33,17 @@ namespace BusinessLogic.Logic
                 new Claim(JwtRegisteredClaimNames.Email, usuario.Email),
                 new Claim(JwtRegisteredClaimNames.Name, usuario.Nombre),
                 new Claim(JwtRegisteredClaimNames.FamilyName, usuario.Apellido),
+                new Claim(JwtRegisteredClaimNames.Email, usuario.Email),
                 new Claim("username", usuario.UserName)
             };
 
-            var credentials = new SigningCredentials(_key, SecurityAlgorithms.HmacSha512Signature);
+            var credencials = new SigningCredentials(_key, SecurityAlgorithms.HmacSha512Signature);
 
             var tokenConfiguration = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(claims),
                 Expires = DateTime.Now.AddDays(60),
-                SigningCredentials = credentials,
+                SigningCredentials = credencials,
                 Issuer = _config["Token:Issuer"]
             };
 
