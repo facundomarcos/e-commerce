@@ -12,6 +12,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentacion", "Documentacion", "{E92E3480-9341-4F2C-B532-88E440A3E2E5}"
 	ProjectSection(SolutionItems) = preProject
 		docker-mssql.txt = docker-mssql.txt
+		docker-redis.txt = docker-redis.txt
 		entityFramework.txt = entityFramework.txt
 		inserts.txt = inserts.txt
 		Problemas-solucion.txt = Problemas-solucion.txt

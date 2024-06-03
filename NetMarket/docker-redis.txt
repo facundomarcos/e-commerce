@@ -1,0 +1,9 @@
+docker pull redis
+
+docker run -d -p 6379:6379 --name redis-facu redis
+
+docker exec -it redis-facu sh
+redis-cli
+ping
+set nombre Luis
+get nombre
