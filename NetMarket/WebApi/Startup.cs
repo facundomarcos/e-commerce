@@ -64,7 +64,7 @@ public class Startup
             x.UseSqlServer(Configuration.GetConnectionString("IdentitySeguridad"));
         });
 
-        services.AddSingleton<ConnectionMultiplexer>(c =>
+        services.AddSingleton<IConnectionMultiplexer>(c =>
         {
             var configuration = ConfigurationOptions.Parse(Configuration.GetConnectionString("Redis"),true);
             return ConnectionMultiplexer.Connect(configuration);
