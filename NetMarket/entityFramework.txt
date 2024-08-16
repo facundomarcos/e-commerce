@@ -14,9 +14,11 @@ dotnet
 //migracionseguridad identity
 dotnet ef migrations add SeguridadInicio -p BusinessLogic -s WebApi -o Identity/Migrations -c SeguridadDbContext
 
-
-
-
+//migracionimagen usuario
+dotnet ef migrations add SeguridadImagen -p BusinessLogic -s WebApi -o Identity/Migrations -c SeguridadDbContext
+//para ejecutar la migracion
+cd WebAPI
+dotnet watch run
 
 Add-Migration InitialCreate
 Update-Database

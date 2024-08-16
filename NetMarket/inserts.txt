@@ -26,3 +26,13 @@ json producto actualizar put
     "precio":400.00,
     "imagen":""
 }
+
+
+
+http://localhost:5000/api/Usuario/actualizar/39205ce8-b542-42de-bbae-830aee52466f
+json Actualizar usuario put
+{
+    "nombre": "Pepepe",
+    "apellido":"Perez",
+    "password": "Q1w2e3r4$"
+}

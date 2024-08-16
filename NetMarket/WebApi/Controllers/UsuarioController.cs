@@ -20,17 +20,21 @@ namespace WebApi.Controllers
         private readonly SignInManager<Usuario> _signInManager;
         private readonly ITokenService _tokenService;
         private readonly IMapper _mapper;
+        private readonly IPasswordHasher<Usuario> _passwordHasher;
 
         public UsuarioController(
             UserManager<Usuario> userManager, 
             SignInManager<Usuario> signInManager,
             ITokenService tokenService,
-            IMapper mapper)
+            IMapper mapper,
+            IPasswordHasher<Usuario> passwordHasher)
         {
             _signInManager = signInManager;
             _userManager = userManager;
             _tokenService = tokenService;
             _mapper = mapper;
+            _passwordHasher = passwordHasher;
+
         }
 
         [HttpPost("login")]
@@ -87,6 +91,42 @@ namespace WebApi.Controllers
                 Username = usuario.UserName
             };
         }
+
+        [HttpPut("Actualizar/{id}")]
+        public async Task<ActionResult<UsuarioDto>> Actualizar(string id, RegistrarDto registrarDto)
+        {
+            var usuario = await _userManager.FindByIdAsync(id);
+            if(usuario == null)
+            {
+                return NotFound(new CodeErrorResponse(404, "El usuario no existe"));
+
+
+            }
+            usuario.Nombre = registrarDto.Nombre;
+            usuario.Apellido = registrarDto.Apellido;
+            usuario.PasswordHash = _passwordHasher.HashPassword(usuario, registrarDto.Password);
+
+            var resultado = await _userManager.UpdateAsync(usuario);
+
+            if(!resultado.Succeeded)
+            {
+                return BadRequest(new CodeErrorResponse(400, "No se pudo actualizar el usuario"));
+            }
+
+           
+                return new UsuarioDto
+                {
+                    Nombre = usuario.Nombre,
+                    Apellido = usuario.Apellido,
+                    Email = usuario.Email,
+                    Username = usuario?.UserName,
+                    Token = _tokenService.CreateToken(usuario),
+                    Imagen = usuario.Imagen
+
+                };
+            
+        }
+
 
         [Authorize]
         [HttpGet]
