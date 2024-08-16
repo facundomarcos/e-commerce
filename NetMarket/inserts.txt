@@ -1,3 +1,28 @@
 insert into Categoria values('zapatillas');
 insert into Marca values('Puma');
 insert into Producto values('Puma Roma','color negro',3,1,1,50000,null);
+
+
+http://localhost:5000/api/Producto
+json producto insertar post
+{
+    "nombre":"Camisa Negra",
+    "descripcion":"Camisa de oferta 50%",
+    "stock":100,
+    "marcaId": 1,
+    "categoriaId": 4,
+    "precio":500.00,
+    "imagen":""
+}
+
+http://localhost:5000/api/Producto/9
+json producto actualizar put
+{
+    "nombre":"Camisa Rosa",
+    "descripcion":"Camisa de oferta 30%",
+    "stock":10,
+    "marcaId": 1,
+    "categoriaId": 4,
+    "precio":400.00,
+    "imagen":""
+}
