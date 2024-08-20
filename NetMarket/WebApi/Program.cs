@@ -31,10 +31,11 @@ public class Program
                    await MarketDbContextData.CargarDataAsync(context, loggerFactory);
 
                 var userManager = services.GetRequiredService<UserManager<Usuario>>();
+                var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
                 var idenntityContext = services.GetRequiredService<SeguridadDbContext>();
                 await idenntityContext.Database.MigrateAsync();
 
-               await  SeguridadDbContextData.SeedUserAsync(userManager);
+               await  SeguridadDbContextData.SeedUserAsync(userManager,roleManager);
             }
             catch (Exception e)
             {

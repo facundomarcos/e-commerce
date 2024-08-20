@@ -2,6 +2,7 @@
 using BusinessLogic.Logic;
 using Core.Entities;
 using Core.Interfaces;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -33,6 +34,8 @@ public class Startup
 
         var builder = services.AddIdentityCore<Usuario>();
         builder = new IdentityBuilder(builder.UserType, builder.Services);
+        builder.AddRoles<IdentityRole>();
+
         builder.AddEntityFrameworkStores<SeguridadDbContext>();
         builder.AddSignInManager<SignInManager<Usuario>>();
 
@@ -70,6 +73,8 @@ public class Startup
             var configuration = ConfigurationOptions.Parse(Configuration.GetConnectionString("Redis"),true);
             return ConnectionMultiplexer.Connect(configuration);
         });
+
+        services.AddSingleton<ISystemClock, SystemClock>();
 
         services.AddTransient<IProductoRepository, ProductoRepository>();
         
