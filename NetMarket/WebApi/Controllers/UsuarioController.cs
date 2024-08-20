@@ -1,10 +1,13 @@
 ﻿using AutoMapper;
 using Core.Entities;
 using Core.Interfaces;
+using Core.Specifications;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -21,19 +24,22 @@ namespace WebApi.Controllers
         private readonly ITokenService _tokenService;
         private readonly IMapper _mapper;
         private readonly IPasswordHasher<Usuario> _passwordHasher;
+        private readonly IGenericSeguridadRepository<Usuario> _seguridadRepository;
 
         public UsuarioController(
             UserManager<Usuario> userManager, 
             SignInManager<Usuario> signInManager,
             ITokenService tokenService,
             IMapper mapper,
-            IPasswordHasher<Usuario> passwordHasher)
+            IPasswordHasher<Usuario> passwordHasher,
+            IGenericSeguridadRepository<Usuario> seguridadRepository)
         {
             _signInManager = signInManager;
             _userManager = userManager;
             _tokenService = tokenService;
             _mapper = mapper;
             _passwordHasher = passwordHasher;
+            _seguridadRepository = seguridadRepository;
 
         }
 
@@ -125,6 +131,30 @@ namespace WebApi.Controllers
 
                 };
             
+        }
+
+        [HttpGet("pagination")]
+        public async Task<ActionResult<Pagination<UsuarioDto>>> GetUsuarios([FromQuery] UsuarioSpecificationParams usuarioParams)
+        {
+            var spec = new UsuarioSpecification(usuarioParams);
+            var usuarios = await _seguridadRepository.GetAllWithSpec(spec);
+
+            var specCount = new UsuarioForCountingSpecification(usuarioParams);
+            var totalUsuarios = await _seguridadRepository.CountAsync(specCount);
+
+            var rounded = Math.Ceiling(Convert.ToDecimal(totalUsuarios) / Convert.ToDecimal(usuarioParams.PageSize));
+            var totalPages = Convert.ToInt32(rounded);
+
+            var data = _mapper.Map<IReadOnlyList<Usuario>, IReadOnlyList<UsuarioDto>>(usuarios);
+
+            return Ok(new Pagination<UsuarioDto>
+            {
+                Count = totalUsuarios,
+                Data = data,
+                PageCount = totalPages,
+                PageIndex = usuarioParams.PageIndex,
+                PageSize = usuarioParams.PageSize,
+            });
         }
 
 
