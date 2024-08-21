@@ -62,12 +62,16 @@ namespace WebApi.Controllers
                 return Unauthorized(new CodeErrorResponse(401));
             }
 
-            return new UsuarioDto { 
+            var roles = await _userManager.GetRolesAsync(usuario);
+
+            return new UsuarioDto {
                 Email = usuario.Email,
                 Username = usuario.UserName,
                 Token = _tokenService.CreateToken(usuario),
                 Nombre = usuario.Nombre,
-                Apellido = usuario.Apellido
+                Apellido = usuario.Apellido,
+                Imagen = usuario.Imagen,
+                Admin = roles.Contains("ADMIN") ? true : false
             
             };
         
@@ -98,7 +102,8 @@ namespace WebApi.Controllers
                 Apellido = usuario.Apellido,
                 Token = _tokenService.CreateToken(usuario),
                 Email = usuario.Email,
-                Username = usuario.UserName
+                Username = usuario.UserName,
+                Admin = false
             };
         }
 
@@ -114,6 +119,13 @@ namespace WebApi.Controllers
             }
             usuario.Nombre = registrarDto.Nombre;
             usuario.Apellido = registrarDto.Apellido;
+            usuario.Imagen = registrarDto.Imagen;
+
+            if (!string.IsNullOrEmpty(registrarDto.Password))
+            {
+                usuario.PasswordHash = _passwordHasher.HashPassword(usuario, registrarDto.Password);
+            }
+
             usuario.PasswordHash = _passwordHasher.HashPassword(usuario, registrarDto.Password);
 
             var resultado = await _userManager.UpdateAsync(usuario);
@@ -123,15 +135,17 @@ namespace WebApi.Controllers
                 return BadRequest(new CodeErrorResponse(400, "No se pudo actualizar el usuario"));
             }
 
-           
-                return new UsuarioDto
+            var roles = await _userManager.GetRolesAsync(usuario);
+
+            return new UsuarioDto
                 {
                     Nombre = usuario.Nombre,
                     Apellido = usuario.Apellido,
                     Email = usuario.Email,
                     Username = usuario?.UserName,
                     Token = _tokenService.CreateToken(usuario),
-                    Imagen = usuario.Imagen
+                    Imagen = usuario.Imagen,
+                    Admin = roles.Contains("ADMIN") ? true : false
 
                 };
             
@@ -208,19 +222,48 @@ namespace WebApi.Controllers
             return usuarioDto;
         }
 
-        [Authorize]
-        [HttpGet]
-        public async Task<ActionResult<UsuarioDto>> GetUsuario()
+        [HttpGet("account/{id}")]
+        public async Task<ActionResult<UsuarioDto>> GetUsuarioBy(string id)
         {
+            var usuario = await _userManager.FindByIdAsync(id);
+            if(usuario == null)
+            {
+                return NotFound(new CodeErrorResponse(404,"El usuario no existe"));
+            }
 
-            var usuario = await _userManager.BuscarUsuarioAsync(HttpContext.User);
+            var roles = await _userManager.GetRolesAsync(usuario);
+
             return new UsuarioDto
             {
                 Nombre = usuario.Nombre,
                 Apellido = usuario.Apellido,
                 Email = usuario.Email,
                 Username = usuario.UserName,
-                Token = _tokenService.CreateToken(usuario)
+                Imagen = usuario.Imagen,
+                Admin = roles.Contains("ADMIN") ? true : false
+            };
+
+        }
+
+
+        [Authorize]
+        [HttpGet]
+        public async Task<ActionResult<UsuarioDto>> GetUsuario()
+        {
+
+            var usuario = await _userManager.BuscarUsuarioAsync(HttpContext.User);
+
+            var roles = await _userManager.GetRolesAsync(usuario);
+
+            return new UsuarioDto
+            {
+                Nombre = usuario.Nombre,
+                Apellido = usuario.Apellido,
+                Email = usuario.Email,
+                Username = usuario.UserName,
+                Imagen = usuario.Imagen,
+                Token = _tokenService.CreateToken(usuario),
+                Admin = roles.Contains("ADMIN") ? true : false
             };
         
         }

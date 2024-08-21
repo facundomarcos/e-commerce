@@ -2,6 +2,10 @@ insert into Categoria values('zapatillas');
 insert into Marca values('Puma');
 insert into Producto values('Puma Roma','color negro',3,1,1,50000,null);
 
+http://localhost:5000/api/Producto
+get obtener productos
+
+
 
 http://localhost:5000/api/Producto
 json producto insertar post
@@ -35,4 +39,23 @@ json Actualizar usuario put
     "nombre": "Pepepe",
     "apellido":"Perez",
     "password": "Q1w2e3r4$"
+}
+
+http://localhost:5000/api/Usuario/actualizar/39205ce8-b542-42de-bbae-830aee52466f
+put actualizar usuario
+{
+    "nombre": "Pepepe",
+    "apellido":"Perez",
+    "password": "Q1w2e3r4$"
+}
+
+http://localhost:5000/api/Usuario/pagination
+get usuario paginacion
+
+
+http://localhost:5000/api/Usuario/Role/39205ce8-b542-42de-bbae-830aee52466f
+put agregar, quitar rol a usuario
+{
+    "nombre": "ADMIN",
+    "status": true
 }
