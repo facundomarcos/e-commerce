@@ -25,6 +25,7 @@ namespace WebApi.Controllers
         private readonly IMapper _mapper;
         private readonly IPasswordHasher<Usuario> _passwordHasher;
         private readonly IGenericSeguridadRepository<Usuario> _seguridadRepository;
+        private readonly RoleManager<IdentityRole> _roleManager;
 
         public UsuarioController(
             UserManager<Usuario> userManager, 
@@ -32,7 +33,9 @@ namespace WebApi.Controllers
             ITokenService tokenService,
             IMapper mapper,
             IPasswordHasher<Usuario> passwordHasher,
-            IGenericSeguridadRepository<Usuario> seguridadRepository)
+            IGenericSeguridadRepository<Usuario> seguridadRepository,
+            RoleManager<IdentityRole> roleManager
+            )
         {
             _signInManager = signInManager;
             _userManager = userManager;
@@ -40,6 +43,7 @@ namespace WebApi.Controllers
             _mapper = mapper;
             _passwordHasher = passwordHasher;
             _seguridadRepository = seguridadRepository;
+            _roleManager = roleManager;
 
         }
 
@@ -157,6 +161,52 @@ namespace WebApi.Controllers
             });
         }
 
+        [HttpPut("role/{id}")]
+        public async Task<ActionResult<UsuarioDto>> UpdateRole(string id, RoleDto roleParam)
+        {
+            var role = await _roleManager.FindByNameAsync(roleParam.Nombre);
+
+            if (role == null)
+            {
+                return NotFound(new CodeErrorResponse(404, "El rol no existe"));
+            }
+
+            var usuario = await _userManager.FindByIdAsync(id);
+            if (usuario == null)
+            {
+                return NotFound(new CodeErrorResponse(404, "El usuario no existe"));
+            }
+
+            var usuarioDto = _mapper.Map<Usuario, UsuarioDto>(usuario);
+
+            if (roleParam.Status)
+            {
+               var resultado = await _userManager.AddToRoleAsync(usuario, roleParam.Nombre);
+           
+                if(resultado.Succeeded)
+                {
+                    usuarioDto.Admin = true;
+                }
+
+                if (resultado.Errors.Any())
+                {
+                    if(resultado.Errors.Where(x => x.Code == "UserAlreadyInRole").Any())
+                    {
+                        usuarioDto.Admin = true;
+                    }
+                }
+            }
+            else
+            {
+               var resultado = await _userManager.RemoveFromRoleAsync(usuario, roleParam.Nombre);
+                if (resultado.Succeeded)
+                {
+                    usuarioDto.Admin = false;
+                }
+            }
+
+            return usuarioDto;
+        }
 
         [Authorize]
         [HttpGet]
