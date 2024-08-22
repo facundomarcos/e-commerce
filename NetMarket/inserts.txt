@@ -50,7 +50,7 @@ put actualizar usuario
 }
 
 http://localhost:5000/api/Usuario/pagination
-get usuario paginacion
+get usuario paginacion - requiere token
 
 
 http://localhost:5000/api/Usuario/Role/39205ce8-b542-42de-bbae-830aee52466f
@@ -58,4 +58,11 @@ put agregar, quitar rol a usuario
 {
     "nombre": "ADMIN",
     "status": true
+}
+
+http://localhost:5000/api/Usuario/login
+json login usuario post
+{
+    "email": "facundomarcos@live.com.ar",
+    "password": "Q1w2e3r4$"
 }

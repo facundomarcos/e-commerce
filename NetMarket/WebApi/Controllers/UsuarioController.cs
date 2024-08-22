@@ -67,7 +67,7 @@ namespace WebApi.Controllers
             return new UsuarioDto {
                 Email = usuario.Email,
                 Username = usuario.UserName,
-                Token = _tokenService.CreateToken(usuario),
+                Token = _tokenService.CreateToken(usuario, roles),
                 Nombre = usuario.Nombre,
                 Apellido = usuario.Apellido,
                 Imagen = usuario.Imagen,
@@ -89,7 +89,7 @@ namespace WebApi.Controllers
                 Apellido = registrarDto.Apellido
             };
 
-          var resultado = await _userManager.CreateAsync(usuario, registrarDto.Password);
+            var resultado = await _userManager.CreateAsync(usuario, registrarDto.Password);
 
             if (!resultado.Succeeded)
             {
@@ -100,13 +100,14 @@ namespace WebApi.Controllers
             {
                 Nombre = usuario.Nombre,
                 Apellido = usuario.Apellido,
-                Token = _tokenService.CreateToken(usuario),
+                Token = _tokenService.CreateToken(usuario, null),
                 Email = usuario.Email,
                 Username = usuario.UserName,
                 Admin = false
             };
         }
 
+        [Authorize]
         [HttpPut("Actualizar/{id}")]
         public async Task<ActionResult<UsuarioDto>> Actualizar(string id, RegistrarDto registrarDto)
         {
@@ -143,7 +144,7 @@ namespace WebApi.Controllers
                     Apellido = usuario.Apellido,
                     Email = usuario.Email,
                     Username = usuario?.UserName,
-                    Token = _tokenService.CreateToken(usuario),
+                    Token = _tokenService.CreateToken(usuario, roles),
                     Imagen = usuario.Imagen,
                     Admin = roles.Contains("ADMIN") ? true : false
 
@@ -151,6 +152,7 @@ namespace WebApi.Controllers
             
         }
 
+        [Authorize(Roles = "ADMIN")]
         [HttpGet("pagination")]
         public async Task<ActionResult<Pagination<UsuarioDto>>> GetUsuarios([FromQuery] UsuarioSpecificationParams usuarioParams)
         {
@@ -175,6 +177,7 @@ namespace WebApi.Controllers
             });
         }
 
+        [Authorize(Roles = "ADMIN")]
         [HttpPut("role/{id}")]
         public async Task<ActionResult<UsuarioDto>> UpdateRole(string id, RoleDto roleParam)
         {
@@ -218,10 +221,22 @@ namespace WebApi.Controllers
                     usuarioDto.Admin = false;
                 }
             }
-
+            
+            if(usuarioDto.Admin)
+            {
+                var roles = new List<string>();
+                roles.Add("ADMIN");
+                usuarioDto.Token = _tokenService.CreateToken(usuario, roles);
+            }
+            else
+            {
+                usuarioDto.Token = _tokenService.CreateToken(usuario, null);
+            }
+            
             return usuarioDto;
         }
 
+        [Authorize(Roles = "ADMIN")]
         [HttpGet("account/{id}")]
         public async Task<ActionResult<UsuarioDto>> GetUsuarioBy(string id)
         {
@@ -262,12 +277,13 @@ namespace WebApi.Controllers
                 Email = usuario.Email,
                 Username = usuario.UserName,
                 Imagen = usuario.Imagen,
-                Token = _tokenService.CreateToken(usuario),
+                Token = _tokenService.CreateToken(usuario, roles),
                 Admin = roles.Contains("ADMIN") ? true : false
             };
         
         }
 
+        [Authorize]
         [HttpGet("emailvalido")]
         public async Task<ActionResult<bool>> ValidarEmail([FromQuery] string email)
         {

@@ -26,16 +26,23 @@ namespace BusinessLogic.Logic
         }
 
 
-        public string CreateToken(Usuario usuario)
+        public string CreateToken(Usuario usuario, IList<string> roles)
         {
             var claims = new List<Claim>
             {
                 new Claim(JwtRegisteredClaimNames.Email, usuario.Email),
                 new Claim(JwtRegisteredClaimNames.Name, usuario.Nombre),
                 new Claim(JwtRegisteredClaimNames.FamilyName, usuario.Apellido),
-                new Claim(JwtRegisteredClaimNames.Email, usuario.Email),
                 new Claim("username", usuario.UserName)
             };
+
+            if(roles != null && roles.Count > 0)
+            {
+                foreach(var role in roles)
+                {
+                    claims.Add(new Claim(ClaimTypes.Role, role));
+                }
+            }
 
             var credencials = new SigningCredentials(_key, SecurityAlgorithms.HmacSha512Signature);
 

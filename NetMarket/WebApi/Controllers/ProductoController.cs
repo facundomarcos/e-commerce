@@ -2,6 +2,7 @@
 using Core.Entities;
 using Core.Interfaces;
 using Core.Specifications;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,8 @@ namespace WebApi.Controllers
             _productoRepository = productoRepository;
             _mapper = mapper;
         }
+
+
         [HttpGet]
         public async Task<ActionResult<Pagination<ProductoDto>>> GetProductos([FromQuery]ProductoSpecificationParams productoParams)
         {
@@ -52,6 +55,7 @@ namespace WebApi.Controllers
                 }
                 );
         }
+
         [HttpGet("{id}")]
         public async Task<ActionResult<ProductoDto>> GetProducto(int id)
         {
@@ -67,6 +71,7 @@ namespace WebApi.Controllers
            return _mapper.Map<Producto, ProductoDto>(producto);
         }
 
+        [Authorize(Roles = "ADMIN")]
         [HttpPost]
         public async Task<ActionResult<Producto>> Post(Producto producto)
         {
@@ -78,6 +83,7 @@ namespace WebApi.Controllers
             return Ok(producto);
         }
 
+        [Authorize(Roles = "ADMIN")]
         [HttpPut("{id}")]
         public async Task<ActionResult<Producto>> Put(int id, Producto producto)
         {
