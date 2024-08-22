@@ -65,6 +65,7 @@ namespace WebApi.Controllers
             var roles = await _userManager.GetRolesAsync(usuario);
 
             return new UsuarioDto {
+                Id = usuario.Id,
                 Email = usuario.Email,
                 Username = usuario.UserName,
                 Token = _tokenService.CreateToken(usuario, roles),
@@ -98,6 +99,7 @@ namespace WebApi.Controllers
 
             return new UsuarioDto
             {
+                Id = usuario.Id,
                 Nombre = usuario.Nombre,
                 Apellido = usuario.Apellido,
                 Token = _tokenService.CreateToken(usuario, null),
@@ -140,6 +142,7 @@ namespace WebApi.Controllers
 
             return new UsuarioDto
                 {
+                    Id = usuario.Id,
                     Nombre = usuario.Nombre,
                     Apellido = usuario.Apellido,
                     Email = usuario.Email,
@@ -250,6 +253,7 @@ namespace WebApi.Controllers
 
             return new UsuarioDto
             {
+                Id = usuario.Id,
                 Nombre = usuario.Nombre,
                 Apellido = usuario.Apellido,
                 Email = usuario.Email,
@@ -272,6 +276,7 @@ namespace WebApi.Controllers
 
             return new UsuarioDto
             {
+                Id = usuario.Id,
                 Nombre = usuario.Nombre,
                 Apellido = usuario.Apellido,
                 Email = usuario.Email,
