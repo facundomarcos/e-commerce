@@ -31,6 +31,7 @@ public class Startup
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddScoped<ITokenService, TokenService>();
+        services.AddScoped<IOrdenCompraService, OrdenCompraService>();
 
         var builder = services.AddIdentityCore<Usuario>();
         builder = new IdentityBuilder(builder.UserType, builder.Services);
