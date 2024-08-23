@@ -1,0 +1,23 @@
+[
+  {
+    "Nombre": "EnvioRapido",
+    "Descripcion": "El envio mas rapido",
+    "Precio": 15
+  },
+  {
+    "Nombre": "EnvioRegular",
+    "Descripcion": "Servicio de envio regular en 5 dias",
+    "Precio": 10
+  },
+  {
+    "Nombre": "EnvioBarato",
+    "Descripcion": "Servicio de envio barato",
+    "Precio": 5
+  },
+  {
+    "Nombre": "EnvioGratis",
+    "Descripcion": "Servicio de envio Gratis",
+    "Precio": 0
+  }
+
+]

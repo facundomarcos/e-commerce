@@ -14,5 +14,6 @@ namespace Core.Entities
         public string CodigoPostal { get; set; }
         public string UsuarioId { get; set; }
         Usuario Usuario { get; set; }
+        public string Pais { get; set; }
     }
 }

@@ -3,6 +3,7 @@
 
 
 using Core.Entities;
+using Core.Entities.OrdenCompra;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -60,6 +61,20 @@ namespace BusinessLogic.Data
                     foreach (var producto in productos)
                     {
                         context.Producto.Add(producto);
+
+                    }
+
+                    await context.SaveChangesAsync();
+                }
+
+                if (!context.tipoEnvios.Any())
+                {
+                    var tipoenvioData = File.ReadAllText("../BusinessLogic/CargarData/tipoenvio.json");
+                    var tipoenvios = JsonSerializer.Deserialize<List<TipoEnvio>>(tipoenvioData);
+
+                    foreach (var tipoenvio in tipoenvios)
+                    {
+                        context.tipoEnvios.Add(tipoenvio);
 
                     }
 

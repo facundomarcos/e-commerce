@@ -22,3 +22,7 @@ dotnet watch run
 
 Add-Migration InitialCreate
 Update-Database
+
+
+//migracion ordencompra
+dotnet ef migrations add MigracionOrdenCompra -p BusinessLogic -s WebApi -o Data/Migrations -c MarketDbContext

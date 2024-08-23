@@ -12,16 +12,18 @@ namespace Core.Entities.OrdenCompra
         {
             
         }
-        public Direccion(string calle, string ciudad, string codigoPostal)
+        public Direccion(string calle, string ciudad, string codigoPostal, string pais)
         {
             Calle = calle;
             Ciudad = ciudad;
             CodigoPostal = codigoPostal;
+            Pais = pais;
         }
 
         public string Calle { get; set; }
         public string Ciudad { get; set; }
         public string CodigoPostal { get; set; }
+        public string Pais { get; set; }
 
     }
 

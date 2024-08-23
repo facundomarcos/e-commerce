@@ -26,6 +26,9 @@ namespace BusinessLogic.Data.Configuration
                 );
             //cuando elimina la orden de compra, se eliminan los items
             builder.HasMany(o => o.OrdenItems).WithOne().OnDelete(DeleteBehavior.Cascade);
+
+            builder.Property(o => o.Subtotal)
+                .HasColumnType("decimal(18,2)");
         }
     }
 }
