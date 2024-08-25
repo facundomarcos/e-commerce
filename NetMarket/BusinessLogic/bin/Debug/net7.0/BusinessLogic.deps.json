@@ -787,7 +787,10 @@
           "Microsoft.Extensions.Identity.Stores": "7.0.10"
         },
         "runtime": {
-          "Core.dll": {}
+          "Core.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }

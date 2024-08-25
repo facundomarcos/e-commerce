@@ -4010,19 +4010,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Usuario\\.nuget\\packages\\": {}
+    "C:\\Users\\Admin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\proyectos\\NetMarket-vaxi\\NetMarket\\WebApi\\WebApi.csproj",
+      "projectUniqueName": "C:\\Users\\Admin\\Source\\Repos\\e-commerce\\NetMarket\\WebApi\\WebApi.csproj",
       "projectName": "WebApi",
-      "projectPath": "C:\\proyectos\\NetMarket-vaxi\\NetMarket\\WebApi\\WebApi.csproj",
-      "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-      "outputPath": "C:\\proyectos\\NetMarket-vaxi\\NetMarket\\WebApi\\obj\\",
+      "projectPath": "C:\\Users\\Admin\\Source\\Repos\\e-commerce\\NetMarket\\WebApi\\WebApi.csproj",
+      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Admin\\Source\\Repos\\e-commerce\\NetMarket\\WebApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4030,15 +4030,15 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\sdk\\7.0.302\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\proyectos\\NetMarket-vaxi\\NetMarket\\BusinessLogic\\BusinessLogic.csproj": {
-              "projectPath": "C:\\proyectos\\NetMarket-vaxi\\NetMarket\\BusinessLogic\\BusinessLogic.csproj"
+            "C:\\Users\\Admin\\Source\\Repos\\e-commerce\\NetMarket\\BusinessLogic\\BusinessLogic.csproj": {
+              "projectPath": "C:\\Users\\Admin\\Source\\Repos\\e-commerce\\NetMarket\\BusinessLogic\\BusinessLogic.csproj"
             }
           }
         }
@@ -4047,6 +4047,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -4091,8 +4096,20 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1902",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "El paquete \"Microsoft.AspNetCore.Authentication.JwtBearer\" 5.0.4 tiene una vulnerabilidad de gravedad moderada conocida, https://github.com/advisories/GHSA-q7cg-43mg-qp69",
+      "libraryId": "Microsoft.AspNetCore.Authentication.JwtBearer",
+      "targetGraphs": [
+        "net7.0"
+      ]
+    }
+  ]
 }
