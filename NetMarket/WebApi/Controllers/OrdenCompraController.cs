@@ -30,7 +30,7 @@ namespace WebApi.Controllers
 
 
         [HttpPost]
-        public async Task<ActionResult<OrdenCompras>> AddOrdenCompra(OrdenCompraDto ordenCompraDto)
+        public async Task<ActionResult<OrdenCompraResponseDto>> AddOrdenCompra(OrdenCompraDto ordenCompraDto)
         {
             var email = HttpContext.User?.Claims?.FirstOrDefault(x => x.Type == ClaimTypes.Email).Value;
             var direccion = _mapper.Map<DireccionDto, Direccion>(ordenCompraDto.DireccionEnvio);
@@ -38,28 +38,31 @@ namespace WebApi.Controllers
             
             if(ordenCompra == null) return BadRequest(new CodeErrorResponse(400, "Errores creando la orden de compra"));
 
-            return Ok(ordenCompra);
+            return Ok(_mapper.Map<OrdenCompraResponseDto>(ordenCompra));
         
         }
 
         [HttpGet]
-        public async Task<ActionResult<IReadOnlyList<OrdenCompras>>> GetOrdenCompras()
+        public async Task<ActionResult<IReadOnlyList<OrdenCompraResponseDto>>> GetOrdenCompras()
         {
             var email = HttpContext.User?.Claims?.FirstOrDefault(x => x.Type == ClaimTypes.Email).Value;
             var ordenCompras  =await _ordenCompraService.GetOrdenComprasByUserEmailAsync(email);
-       
-            return Ok(ordenCompras);
+
+            //return Ok(ordenCompras);
+            return Ok(_mapper.Map<IReadOnlyList<OrdenCompras>, IReadOnlyList<OrdenCompraResponseDto>>(ordenCompras));
+
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<OrdenCompras>> GetOrdenCompraById(int id)
+        public async Task<ActionResult<OrdenCompraResponseDto>> GetOrdenCompraById(int id)
         {
             var email = HttpContext.User?.Claims?.FirstOrDefault(x => x.Type == ClaimTypes.Email).Value;
             var ordenCompra = await _ordenCompraService.GetOrdenComprasByIdAsync(id, email);
 
             if (ordenCompra == null) return NotFound(new CodeErrorResponse(404, "No se encontro la orden de compra"));
             
-            return ordenCompra;
+           //return ordenCompra;
+           return _mapper.Map<OrdenCompras, OrdenCompraResponseDto>(ordenCompra);
 
         }
 

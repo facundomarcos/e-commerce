@@ -201,7 +201,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IReadOnlyList\u00601[[Core.Entities.OrdenCompra.OrdenCompras, Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IReadOnlyList\u00601[[WebApi.Dtos.OrdenCompraResponseDto, WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -227,7 +227,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Core.Entities.OrdenCompra.OrdenCompras",
+        "Type": "WebApi.Dtos.OrdenCompraResponseDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
