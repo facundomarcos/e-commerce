@@ -4,6 +4,7 @@ using Core.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -39,6 +40,33 @@ namespace WebApi.Controllers
 
             return Ok(ordenCompra);
         
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<IReadOnlyList<OrdenCompras>>> GetOrdenCompras()
+        {
+            var email = HttpContext.User?.Claims?.FirstOrDefault(x => x.Type == ClaimTypes.Email).Value;
+            var ordenCompras  =await _ordenCompraService.GetOrdenComprasByUserEmailAsync(email);
+       
+            return Ok(ordenCompras);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<OrdenCompras>> GetOrdenCompraById(int id)
+        {
+            var email = HttpContext.User?.Claims?.FirstOrDefault(x => x.Type == ClaimTypes.Email).Value;
+            var ordenCompra = await _ordenCompraService.GetOrdenComprasByIdAsync(id, email);
+
+            if (ordenCompra == null) return NotFound(new CodeErrorResponse(404, "No se encontro la orden de compra"));
+            
+            return ordenCompra;
+
+        }
+
+        [HttpGet("tipoEnvio")]
+        public async Task<ActionResult<IReadOnlyList<TipoEnvio>>> GetTipoEnvios()
+        {
+            return Ok(await _ordenCompraService.GetTipoEnvios());
         }
 
     }

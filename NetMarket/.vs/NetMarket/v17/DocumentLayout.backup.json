@@ -3,6 +3,22 @@
   "WorkspaceRootPath": "C:\\Users\\Admin\\source\\repos\\e-commerce\\NetMarket\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{E92E3480-9341-4F2C-B532-88E440A3E2E5}|Documentacion{E92E3480-9341-4F2C-B532-88E440A3E2E5}|C:\\Users\\Admin\\Source\\Repos\\e-commerce\\NetMarket\\inserts.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{E92E3480-9341-4F2C-B532-88E440A3E2E5}|Documentacion{E92E3480-9341-4F2C-B532-88E440A3E2E5}|solutionrelative:inserts.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F438C64-D15C-4459-9A60-54379DEC1E17}|WebApi\\WebApi.csproj|c:\\users\\admin\\source\\repos\\e-commerce\\netmarket\\webapi\\controllers\\ordencompracontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F438C64-D15C-4459-9A60-54379DEC1E17}|WebApi\\WebApi.csproj|solutionrelative:webapi\\controllers\\ordencompracontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{20CC8524-27CC-4E56-8ABC-3DDFD7935189}|BusinessLogic\\BusinessLogic.csproj|c:\\users\\admin\\source\\repos\\e-commerce\\netmarket\\businesslogic\\logic\\ordencompraservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{20CC8524-27CC-4E56-8ABC-3DDFD7935189}|BusinessLogic\\BusinessLogic.csproj|solutionrelative:businesslogic\\logic\\ordencompraservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{54EC4ACF-6489-47CF-A245-6066EF340BD5}|Core\\Core.csproj|c:\\users\\admin\\source\\repos\\e-commerce\\netmarket\\core\\specifications\\ordencomprawithitemsspecification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{54EC4ACF-6489-47CF-A245-6066EF340BD5}|Core\\Core.csproj|solutionrelative:core\\specifications\\ordencomprawithitemsspecification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{20CC8524-27CC-4E56-8ABC-3DDFD7935189}|BusinessLogic\\BusinessLogic.csproj|c:\\users\\admin\\source\\repos\\e-commerce\\netmarket\\businesslogic\\logic\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{20CC8524-27CC-4E56-8ABC-3DDFD7935189}|BusinessLogic\\BusinessLogic.csproj|solutionrelative:businesslogic\\logic\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -11,20 +27,12 @@
       "RelativeMoniker": "D:0:0:{54EC4ACF-6489-47CF-A245-6066EF340BD5}|Core\\Core.csproj|solutionrelative:core\\interfaces\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{20CC8524-27CC-4E56-8ABC-3DDFD7935189}|BusinessLogic\\BusinessLogic.csproj|c:\\users\\admin\\source\\repos\\e-commerce\\netmarket\\businesslogic\\logic\\ordencompraservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{20CC8524-27CC-4E56-8ABC-3DDFD7935189}|BusinessLogic\\BusinessLogic.csproj|solutionrelative:businesslogic\\logic\\ordencompraservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{20CC8524-27CC-4E56-8ABC-3DDFD7935189}|BusinessLogic\\BusinessLogic.csproj|c:\\users\\admin\\source\\repos\\e-commerce\\netmarket\\businesslogic\\logic\\genericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{20CC8524-27CC-4E56-8ABC-3DDFD7935189}|BusinessLogic\\BusinessLogic.csproj|solutionrelative:businesslogic\\logic\\genericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{54EC4ACF-6489-47CF-A245-6066EF340BD5}|Core\\Core.csproj|c:\\users\\admin\\source\\repos\\e-commerce\\netmarket\\core\\interfaces\\igenericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{54EC4ACF-6489-47CF-A245-6066EF340BD5}|Core\\Core.csproj|solutionrelative:core\\interfaces\\igenericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E92E3480-9341-4F2C-B532-88E440A3E2E5}|Documentacion{E92E3480-9341-4F2C-B532-88E440A3E2E5}|C:\\Users\\Admin\\Source\\Repos\\e-commerce\\NetMarket\\inserts.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{E92E3480-9341-4F2C-B532-88E440A3E2E5}|Documentacion{E92E3480-9341-4F2C-B532-88E440A3E2E5}|solutionrelative:inserts.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,37 +42,50 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "OrdenCompraService.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\e-commerce\\NetMarket\\BusinessLogic\\Logic\\OrdenCompraService.cs",
-              "RelativeDocumentMoniker": "BusinessLogic\\Logic\\OrdenCompraService.cs",
-              "ToolTip": "C:\\Users\\Admin\\source\\repos\\e-commerce\\NetMarket\\BusinessLogic\\Logic\\OrdenCompraService.cs",
-              "RelativeToolTip": "BusinessLogic\\Logic\\OrdenCompraService.cs",
-              "ViewState": "AgIAADYAAAAAAAAAAAAAAEcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-25T15:11:14.493Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "IUnitOfWork.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\e-commerce\\NetMarket\\Core\\Interfaces\\IUnitOfWork.cs",
-              "RelativeDocumentMoniker": "Core\\Interfaces\\IUnitOfWork.cs",
-              "ToolTip": "C:\\Users\\Admin\\source\\repos\\e-commerce\\NetMarket\\Core\\Interfaces\\IUnitOfWork.cs",
-              "RelativeToolTip": "Core\\Interfaces\\IUnitOfWork.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAFAAAAAAAAAA==",
+              "Title": "OrdenCompraController.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\e-commerce\\NetMarket\\WebApi\\Controllers\\OrdenCompraController.cs",
+              "RelativeDocumentMoniker": "WebApi\\Controllers\\OrdenCompraController.cs",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\e-commerce\\NetMarket\\WebApi\\Controllers\\OrdenCompraController.cs",
+              "RelativeToolTip": "WebApi\\Controllers\\OrdenCompraController.cs",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAkwEQAAABBAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-25T14:52:54.259Z",
+              "WhenOpened": "2024-08-25T15:49:58.786Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "inserts.txt",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\e-commerce\\NetMarket\\inserts.txt",
+              "RelativeDocumentMoniker": "inserts.txt",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\e-commerce\\NetMarket\\inserts.txt",
+              "RelativeToolTip": "inserts.txt",
+              "ViewState": "AgIAAFcAAAAAAAAAAAAwwHMAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2024-08-25T14:00:26.842Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "OrdenCompraWithItemsSpecification.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\e-commerce\\NetMarket\\Core\\Specifications\\OrdenCompraWithItemsSpecification.cs",
+              "RelativeDocumentMoniker": "Core\\Specifications\\OrdenCompraWithItemsSpecification.cs",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\e-commerce\\NetMarket\\Core\\Specifications\\OrdenCompraWithItemsSpecification.cs",
+              "RelativeToolTip": "Core\\Specifications\\OrdenCompraWithItemsSpecification.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAkAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-25T15:42:08.943Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "UnitOfWork.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\e-commerce\\NetMarket\\BusinessLogic\\Logic\\UnitOfWork.cs",
               "RelativeDocumentMoniker": "BusinessLogic\\Logic\\UnitOfWork.cs",
@@ -77,7 +98,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
+              "Title": "OrdenCompraService.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\e-commerce\\NetMarket\\BusinessLogic\\Logic\\OrdenCompraService.cs",
+              "RelativeDocumentMoniker": "BusinessLogic\\Logic\\OrdenCompraService.cs",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\e-commerce\\NetMarket\\BusinessLogic\\Logic\\OrdenCompraService.cs",
+              "RelativeToolTip": "BusinessLogic\\Logic\\OrdenCompraService.cs",
+              "ViewState": "AgIAAEYAAAAAAAAAAAAAAGIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-25T15:11:14.493Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IUnitOfWork.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\e-commerce\\NetMarket\\Core\\Interfaces\\IUnitOfWork.cs",
+              "RelativeDocumentMoniker": "Core\\Interfaces\\IUnitOfWork.cs",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\e-commerce\\NetMarket\\Core\\Interfaces\\IUnitOfWork.cs",
+              "RelativeToolTip": "Core\\Interfaces\\IUnitOfWork.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-25T14:52:54.259Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "IGenericRepository.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\e-commerce\\NetMarket\\Core\\Interfaces\\IGenericRepository.cs",
               "RelativeDocumentMoniker": "Core\\Interfaces\\IGenericRepository.cs",
@@ -90,7 +137,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "GenericRepository.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\e-commerce\\NetMarket\\BusinessLogic\\Logic\\GenericRepository.cs",
               "RelativeDocumentMoniker": "BusinessLogic\\Logic\\GenericRepository.cs",
@@ -99,19 +146,6 @@
               "ViewState": "AgIAADkAAAAAAAAAAAAAAFMAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-25T15:07:27.191Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "inserts.txt",
-              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\e-commerce\\NetMarket\\inserts.txt",
-              "RelativeDocumentMoniker": "inserts.txt",
-              "ToolTip": "C:\\Users\\Admin\\source\\repos\\e-commerce\\NetMarket\\inserts.txt",
-              "RelativeToolTip": "inserts.txt",
-              "ViewState": "AgIAAE4AAAAAAAAAAAAwwGsAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2024-08-25T14:00:26.842Z",
               "EditorCaption": ""
             }
           ]

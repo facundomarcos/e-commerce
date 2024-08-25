@@ -1,6 +1,7 @@
 ﻿using Core.Entities;
 using Core.Entities.OrdenCompra;
 using Core.Interfaces;
+using Core.Specifications;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -75,19 +76,23 @@ namespace BusinessLogic.Logic
 
         }
 
-        public Task<OrdenCompras> GetOrdenComprasByIdAsync(int id, string email)
+        public async Task<OrdenCompras> GetOrdenComprasByIdAsync(int id, string email)
         {
-            throw new NotImplementedException();
+            var spec = new OrdenCompraWithItemsSpecification(id, email);
+
+            return await _unitOfWork.Repository<OrdenCompras>().GetByIdWithSpec(spec);
         }
 
-        public Task<IReadOnlyList<OrdenCompras>> GetOrdenComprasByUserEmailAsync(string email)
+        public async Task<IReadOnlyList<OrdenCompras>> GetOrdenComprasByUserEmailAsync(string email)
         {
-            throw new NotImplementedException();
+            var spec = new OrdenCompraWithItemsSpecification(email);
+
+            return await _unitOfWork.Repository<OrdenCompras>().GetAllWithSpec(spec);
         }
 
-        public Task<IReadOnlyList<TipoEnvio>> GetTipoEnvios()
+        public async Task<IReadOnlyList<TipoEnvio>> GetTipoEnvios()
         {
-            throw new NotImplementedException();
+           return await _unitOfWork.Repository<TipoEnvio>().GetAllAsync();
         }
     }
 }
