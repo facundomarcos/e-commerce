@@ -31,7 +31,15 @@ json producto actualizar put
     "imagen":""
 }
 
-
+http://localhost:5000/api/Usuario/registrar
+post registrar usuario
+{
+    "email": "facundomarcos@live.com.ar",
+    "username": "facundomarcos",
+    "nombre": "Facundo",
+    "apellido":"Marcos",
+    "password": "Q1w2e3r4$"
+}
 
 http://localhost:5000/api/Usuario/actualizar/39205ce8-b542-42de-bbae-830aee52466f
 json Actualizar usuario put
@@ -40,6 +48,8 @@ json Actualizar usuario put
     "apellido":"Perez",
     "password": "Q1w2e3r4$"
 }
+
+
 
 http://localhost:5000/api/Usuario/actualizar/39205ce8-b542-42de-bbae-830aee52466f
 put actualizar usuario
@@ -65,4 +75,35 @@ json login usuario post
 {
     "email": "facundomarcos@live.com.ar",
     "password": "Q1w2e3r4$"
+}
+
+
+http://localhost:5000/Api/carritocompra
+json post agregar ordencompra redis
+requiere token
+{
+    "id":"carritoCompraProductos",
+    "items":[{
+        "id": 1,
+        "producto":"Pantalon casual para eventos sports",
+        "precio": 120,
+        "cantidad": 1,
+        "imagen":"",
+        "marca": "Nike",
+        "categoria":"Pantalon"
+    }]
+}
+
+http://localhost:5000/Api/OrdenCompra
+post agregar orden compra
+requiere token
+{
+    "carritoCompraId": "carritoCompraProductos",
+    "tipoEnvio": 1,
+    "direccionEnvio": {
+        "calle": "Los Patos 2577",
+        "ciudad": "La Plata",
+        "codigoPostal": "1900",
+        "pais": "Argentina"
+    }
 }

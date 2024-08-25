@@ -166,6 +166,32 @@
     ]
   },
   {
+    "ContainingType": "WebApi.Controllers.OrdenCompraController",
+    "Method": "AddOrdenCompra",
+    "RelativePath": "api/OrdenCompra",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ordenCompraDto",
+        "Type": "WebApi.Dtos.OrdenCompraDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Core.Entities.OrdenCompra.OrdenCompras",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "WebApi.Controllers.ProductoController",
     "Method": "GetProductos",
     "RelativePath": "api/Producto",
