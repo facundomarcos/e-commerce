@@ -21,9 +21,9 @@ namespace BusinessLogic.Logic
             _context = context;
         }
 
-        public Task<int> Complete()
+        public async Task<int> Complete()
         {
-            throw new NotImplementedException();
+            return await _context.SaveChangesAsync();
         }
 
         public void Dispose()
